@@ -1,0 +1,24 @@
+name: memcached
+services:
+  server:
+    image: 'bitnami/memcached:latest'
+    container_name: memcached
+    hostname: memcached
+    restart: always
+    pull_policy: always
+    environment:
+      - MEMCACHED_CACHE_SIZE=1024
+      - MEMCACHED_MAX_CONNECTIONS=2000
+      - MEMCACHED_USERNAME=${DB_ADMIN_NAME:-root}
+      - MEMCACHED_PASSWORD=${DB_ADMIN_PASS:-password}
+    extra_hosts:
+      - 'localhost:172.17.0.1'
+      - 'memcached:host-gateway'
+      - 'host.docker.internal:host-gateway'
+    networks:
+      - memcached
+
+networks:
+  memcached:
+    name: memcached
+    external: false
