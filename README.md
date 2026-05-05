@@ -47,7 +47,7 @@ See `docker-compose.yaml` for complete list of configurable options.
 
 ## 📂 Volumes
 
-- `./rootfs/data/memcached` - Application data
+- `./volumes/data/memcached` - Application data
 
 ## 🔐 Security
 
