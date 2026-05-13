@@ -1,4 +1,4 @@
-# nginx proxy address -
+# nginx proxy address - http://172.17.0.1:
 
 name: memcached
 x-logging: &default-logging
@@ -17,6 +17,7 @@ services:
     logging: *default-logging
     environment:
       TZ: ${TZ:-America/New_York}
+      CONTAINER_NAME: memcached-app
       MEMCACHED_CACHE_SIZE: 1024
       MEMCACHED_MAX_CONNECTIONS: 2000
       MEMCACHED_USERNAME: ${DB_ADMIN_NAME:-root}
